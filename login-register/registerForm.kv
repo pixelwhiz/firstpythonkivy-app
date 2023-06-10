@@ -1,0 +1,107 @@
+<TextFieldRound@MDTextFieldRound>:
+    size_hint_x: None
+    normal_color: color_shadow
+    active_color: color_shadow
+
+<registerForm>:
+    name: "registerForm"
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: "#f5f5f5"
+        padding:[dp(0),dp(0),dp(0),dp(0)]
+        MDTopAppBar:
+            title: "Selamat Datang"
+            md_bg_color: "#6495ED"
+            pos_hint: {"center_x": 0.5}
+            right_action_items: [["dots-vertical", lambda x: app.callback(x, "auth")]]
+
+        MDBoxLayout:
+            pos_hint: {"center_x": .5, "center_y": .5}
+            padding:[dp(25),dp(25),dp(25),dp(25)]
+            Image:
+                source: "images/user.png"
+                size: self.texture_size
+
+        MDBoxLayout:
+            padding:[dp(25),dp(25),dp(25),dp(25)]
+            pos_hint: {"center_x": .53, "center_y": 1.0}
+            size_hint_x: .75
+            size_hint_y: .15
+            cols: 1
+            MDLabel:
+                text: "Register Account"
+                font_size: 26
+                font_name: "fonts/Poppins-Black.ttf"
+
+        MDGridLayout:
+
+            pos_hint: {"center_x": .5, "center_y": .75}
+            size_hint_x: .95
+            size_hint_y: .75
+            md_bg_color: "#f5f5f5"
+            
+            cols: 2
+            padding:[dp(40),dp(35),dp(40),dp(35)]
+            spacing:dp(10)
+
+            MDTextField: 
+                id: email
+                hint_text: "Email"
+                font_name: "fonts/Poppins-Medium.ttf"
+                current_hint_text_color: 0, 0, 0, 1
+                helper_text_mode: "persistent"
+                helper_text: "example@gmail.com"
+                
+            
+            MDTextField: 
+                id: username
+                hint_text: "Username"
+                font_name: "fonts/Poppins-Medium.ttf"
+                current_hint_text_color: 0, 0, 0, 1
+                
+
+            MDTextField: 
+                id: password
+                hint_text: "Password"
+                font_name: "fonts/Poppins-Medium.ttf"
+                current_hint_text_color: 0, 0, 0, 1
+                password: True
+                
+
+            MDTextField: 
+                id: fullname
+                hint_text: "Full Name"
+                font_name: "fonts/Poppins-Medium.ttf"
+                current_hint_text_color: 0, 0, 0, 1
+
+        MDBoxLayout:
+            orientation: "vertical"
+            padding:[dp(50),dp(50),dp(50),dp(50)]
+            size: 100, 200
+            cols: 1
+            MDRaisedButton:
+                text: "Buat Akun"
+                font_name: "fonts/Poppins-Medium.ttf"
+                size_hint_x: 1
+                pos_hint: {"center_x": .5, "center_y": .5}
+                background_color: "#6495ED"
+                halign: "center"
+                on_release: 
+                    #app.Firebase.sign_up(email.text, username.text, fullname.text, password.text)
+                    app.register(email.text, username.text, fullname.text, password.text)
+                #on_press: root.registerForm()
+                #on_press: app.root.current = 'registerForm'
+            MDFlatButton:
+                text: "Kembali"
+                font_name: "fonts/Poppins-Medium.ttf"
+                size_hint_x: .5
+                pos_hint: {"center_x": .5, "center_y": .5}
+                background_color: "#6495ED"
+                halign: "center"
+                on_release: 
+                    app.change_screen("loginForm")
+                    #app.logout()
+                #on_press: root.registerForm()
+                #on_press: app.root.current = 'registerForm'
+            
+        

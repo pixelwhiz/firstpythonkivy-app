@@ -1,0 +1,55 @@
+<profileForm>
+    name: "profileForm"
+    MDBoxLayout:
+        orientation: "vertical"
+        MDTopAppBar:
+            #title: "About"
+            md_bg_color: "#f5f5f5"
+            #left_action_items: [["arrow-left", lambda x: app.change_screen("homeForm")]]
+            MDIconButton:
+                icon: "arrow-left"
+                theme_text_color: "Custom"
+                text_color: "#6495ED"
+                on_release: app.change_screen("homeForm")
+            
+        
+        MDBoxLayout:
+            padding:[dp(25),dp(25),dp(25),dp(25)]
+            md_bg_color: "#f5f5f5"
+            orientation: "vertical"
+            MDLabel:
+                id: email.passing
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                text: "Email: daffa@gmail.com"
+            MDLabel:
+                id: username.passing
+                text: "Username: daffa"
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            MDLabel:
+                id: fullname.passing
+                text: "Full Name: Muhammad Daffa"
+                size_hint: .5, .5
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            MDLabel:
+                id: password.passing
+                text: "password: daffa"
+                size_hint: .5, .5
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        
+        MDBoxLayout:
+            orientation: "vertical"
+            padding:[dp(50),dp(50),dp(50),dp(50)]
+            size: 100, 200
+            cols: 1
+            MDRaisedButton:
+                text: "Log Out"
+                font_name: "fonts/Poppins-Medium.ttf"
+                size_hint_x: 1
+                pos_hint: {"center_x": .5, "center_y": .5}
+                background_color: "#6495ED"
+                halign: "center"
+                on_release: 
+                    #app.Firebase.sign_up(email.text, username.text, fullname.text, password.text)
+                    app.register(email.text, username.text, fullname.text, password.text)
+                #on_press: root.registerForm()
+                #on_press: app.root.current = 'registerForm'

@@ -1,0 +1,43 @@
+<aboutForm>
+    name: "aboutForm"
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: "#ffffff"
+        padding:[dp(0),dp(0),dp(0),dp(0)]
+        MDTopAppBar:
+            #title: "About"
+            md_bg_color: "#ffffff"
+            #left_action_items: [["arrow-left", lambda x: app.change_screen("homeForm")]]
+            MDIconButton:
+                icon: "arrow-left"
+                theme_text_color: "Custom"
+                text_color: "#6495ED"
+                on_release: app.change_screen("homeForm")
+
+        MDBoxLayout:
+            ScrollView:
+                MDBoxLayout:
+                    orientation: "vertical"
+                    padding:[dp(50),dp(50),dp(50),dp(50)]
+                    size: 100, 200
+                    cols: 1
+                    MDLabel:
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        text: "About"
+                        halign: "center"
+                        #theme_text_color: "Custom"
+                        font_style: "H3"
+                    MDLabel:
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        text: "TKJ (Teknik Komputer Jaringan) merupakan sebuah kejuruan yang mempelajari tentang cara merakit komputer, mengenal dan mempelajari komponen hardware apa saja yang ada di dalam komputer, merakit komputer serta fokus mempelajari jaringan dasar"
+                        halign: "center"
+                        #theme_text_color: "Custom"
+                        font_style: "Caption"
+                    
+                    MDLabel:
+                        id: total_users
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        text: ""
+                        halign: "center"
+                        #theme_text_color: "Custom"
+                        font_style: "Caption"

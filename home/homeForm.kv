@@ -1,0 +1,112 @@
+<homeForm>
+    name: "homeForm"
+    MDBoxLayout:
+        orientation: "vertical"
+        MDTopAppBar:
+            title: "TKJ SMKN 1 KEDIRI"
+            md_bg_color: "#6495ED"
+            right_action_items: [["logout", lambda x: app.logout()], ["dots-vertical", lambda x: app.callback(x, "home")]]
+            
+        
+        MDBoxLayout:
+            padding:[dp(25),dp(25),dp(25),dp(25)]
+            md_bg_color: "#f5f5f5"
+            orientation: "vertical"
+            size: 100, 200
+            MDLabel:
+                id: label
+                text: ""
+                font_name: "fonts/Poppins-Medium.ttf"
+                size_hint_x: 1.0
+                size_hint_y: 0.3
+            
+
+            Carousel:
+                id: s
+                direction: "right"
+                loop: True
+
+                Image:
+                    source: "images/logo.png"
+                Image:
+                    source: "images/background.png"
+                Image:
+                    source: "images/calendar.png"
+            #Image:
+            #   source: "images/logo.png"
+            #  size: self.texture_size
+
+        MDGridLayout:
+
+            md_bg_color: "#f5f5f5"
+            
+            cols:2
+            padding:[dp(10),dp(25),dp(10),dp(25)]
+            spacing:dp(15)
+
+            ElementCard:
+                image:"images/about.png"
+                text:"About"
+                font_name: "fonts/Poppins-Medium.ttf"
+                subtext:"About this app"
+                items_count:""
+                on_release: app.change_screen("aboutForm")
+            
+            ElementCard:
+                image:"images/youtube.png"
+                text:"YouTube"
+                font_name: "fonts/Poppins-Medium.ttf"
+                items_count:""
+                subtext:"Channel TKJ Smeksa"
+                on_release: app.openUrl("https://youtube.com/@tkjsmknegeri1kediri766")
+                
+            ElementCard:
+                image:"images/instagram.png"
+                text:"Instagram"
+                font_name: "fonts/Poppins-Medium.ttf"
+                subtext:"Follow instagram TKJ"
+                items_count:""
+                on_release: app.openUrl("https://instagram.com/tkjsmkn1kediri?igshid=YmMyMTA2M2Y=")
+            
+            ElementCard:
+                image:"images/cobrass.png"
+                text:"Cobrass"
+                font_name: "fonts/Poppins-Medium.ttf"
+                items_count:""
+                subtext:"Join discord cobrass"
+                on_release: app.openUrl("https://forms.gle/rhVcp8gAZEbaPcWw8")
+
+            
+<ElementCard@MDCard>:
+    md_bg_color: "#ffffff"
+    padding:dp(10)
+    spacing:dp(15)
+    radius:dp(10)
+    ripple_behavior: True
+    image:''
+    text:""
+    font_name: "fonts/Poppins-Medium.ttf"
+    items_count:""
+    subtext:''
+
+    orientation:'vertical'
+    Image:
+        source:root.image
+    MDBoxLayout:
+        orientation:'vertical'
+        MDLabel:
+            halign:"center"
+            text:root.text
+            font_name: "fonts/Poppins-Regular.ttf"
+            font_size: 20
+            #font_style:"H6"
+        MDLabel:
+            halign:"center"
+            font_style:"Caption"
+            font_name: "fonts/Poppins-Light.ttf"
+            font_size: 10
+            text:root.subtext
+        MDLabel:
+            halign:"center"
+            text:root.items_count
+            font_name: "fonts/Poppins-Light.ttf"
